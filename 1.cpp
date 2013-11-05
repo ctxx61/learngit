@@ -8,18 +8,18 @@ struct number *next;
 };
 int n;
 struct number *creat(void)
-{struct *head;
-struct *p1,*p2;
+{struct number *head;
+struct number *p1,*p2;
 n=0;
 p1=p2=(struct number *) malloc(LEN);
 scanf("%2d", &p1->num);
 head=NULL;
-while(p1->number!=0)
+while(p1->num!=0)
 {n=n+1;
 if(n==1)head=p1;
 else p2->next=p1;
 p2=p1;
-p1=(struct number *) nalloc(LEN);
+p1=(struct number *) malloc(LEN);
 scanf("%2d",&p1->num);
 }
 p2->next=NULL;
@@ -28,7 +28,7 @@ return(head);
 int main()
 {
 	struct number * fir;
-		fir=creat(2012);
+		fir=creat();
 		printf("%2d",fir->num);
 		return 0;
 }
