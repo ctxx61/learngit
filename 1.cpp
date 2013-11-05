@@ -27,7 +27,7 @@ return(head);
 }
 int main()
 {
-	struct number * fir;
+	struct number *fir;
 		fir=creat();
 		printf("%2d",fir->num);
 		return 0;
