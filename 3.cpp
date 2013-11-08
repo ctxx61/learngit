@@ -24,18 +24,20 @@ for(j=i-1;j>=0 && temp<arr[j];j--)
 for(i=0;i<size;i++)
  
 {
-  printf("%c ",arr[i]);
+  printf("%s ",arr[i]);
  }
 }
 
 main()
 {
 	FILE *p;
-	char num[100][10];
+	char num[100];
+	int i=0;
 	if((p=fopen("H:\\rand100.txt","r"))==NULL)
 	{printf("无法打开此文件.");
 	exit(0);
 	}
+	fgets(num,12,p);
     insert_sort(num,100);
 	return 0;
 }
