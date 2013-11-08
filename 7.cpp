@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void paixu(char array[], int low, int hight)
+void paixu(int array[], int low, int hight)
 {
 int i,j,t,m;
 if(low<hight)
@@ -40,22 +40,26 @@ paixu(array, low, i-1);//前面部分实现递归
 paixu(array, i+1, hight);//后面部分实现递归
 }
 }
-
 main()
 {
-	FILE *p;
-	char num[100][12];
-	int i=0;
-	if((p=fopen("h:\\rand100.txt","r"))==NULL)
+	
+FILE *p;
+	int f=0,b;
+	int s=0;
+	int array[100];
+	if((p=fopen("h:\\Rand100.txt","r"))==NULL)
         {
                 printf("打不开文件");
                         exit(0);
         }
-        while((fgets(num[i++],12,p))!=NULL);
-	for(i=0;i<99;i++)
-	{
-		printf("%s",num[i]);
-	}
-         paixu(num,0,100);
-	return 0;
+          for(f=0;f<100;f++)
+		  {
+			  fscanf(p,"%d",&b);
+			  array[f]=b;
+				}
+paixu(array,s,100-1);
+for(s=0;s<100;s++)
+{
+printf("%d\n",array[s]);
+}
 }

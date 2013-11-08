@@ -4,11 +4,23 @@
 
 void main()
 {
-int array[10] = {1,2,11,22,33,4,23,234,4,6};
-int length = sizeof(array)/sizeof(array[0]);
-int k=0, s=0, i=0, j=0, m=0;
+	
+FILE *p;
+	int f=0,b;
+	int array[100];
+	int k=0, s=0, i=0, j=0, m=0;
+	if((p=fopen("h:\\Rand100.txt","r"))==NULL)
+        {
+                printf("打不开文件");
+                        exit(0);
+        }
+          for(f=0;f<100;f++)
+		  {
+			  fscanf(p,"%d",&b);
+			  array[f]=b;
+				}
 //冒泡排序开始
-for(i = length-1;i>0;i=k)
+for(i =100-1;i>0;i=k)
 {
 for(j=0, k=0;j<i;j++)
 {
@@ -22,8 +34,8 @@ k=j;
 }
 }
 //冒泡排序结束，输出显示排序的结果
-for(s=0; s<length; s++)
+for(s=0; s<100; s++)
 {
-printf("%d \n",array[s]);
+printf("%d\n",array[s]);
 }
 }

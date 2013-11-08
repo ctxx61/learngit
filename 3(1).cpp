@@ -1,11 +1,23 @@
 #include <stdio.h>
+#include <stdlib.h>
 void main()
 {
-int array[] = {9,43,567,1,45,23,123,54,234,987};
-int length = sizeof(array)/sizeof(array[0]);
-int i,j,t,m;
+	FILE *p;
+	int f=0,b;
+	int array[100];
+    int i,j,t,m;
+	if((p=fopen("h:\\Rand100.txt","r"))==NULL)
+        {
+                printf("打不开文件");
+                        exit(0);
+        }
+          for(f=0;f<100;f++)
+		  {
+			  fscanf(p,"%d",&b);
+			  array[f]=b;
+				}
 //插入排序开始
-for(i=1;i<length;i++)//默认下标为0的已经是排序好的，所以从1开始
+for(i=1;i<100;i++)//默认下标为0的已经是排序好的，所以从1开始
 {
 t = array[i];
 j=i;
@@ -18,8 +30,8 @@ j--;//交换完毕继续比较
 }
 }
 //插入排序结束
-for(i=0;i<length;i++)
+for(i=0;i<100;i++)
 {
-printf("%d \n",array[i]);
+printf("%d\n",array[i]);
 }
 }
