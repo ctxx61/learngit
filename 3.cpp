@@ -2,42 +2,36 @@
 #include <stdlib.h>
 #include <string.h>
 
-void insert_sort(char arr[],int size)
-
+#include <stdio.h>
+void main()
 {
- int i,j;
-	 char temp;
- 
-for(i=1;i<size;i++)
- 
+FILE *p;
+	char array[100][12];
+int i=0,j;
+char t[12],m[12];
+if((p=fopen("h:\\rand100.txt","r"))==NULL)
+        {
+                printf("打不开文件");
+                        exit(0);
+        }
+        while((fgets(array[i++],12,p))!=NULL);
+		fclose(p);
+//插入排序开始
+for(i=1;i<100;i++)//默认下标为0的已经是排序好的，所以从1开始
 {
-  temp=arr[i];
-  
-for(j=i-1;j>=0 && temp<arr[j];j--)
-  
+strcpy(t,array[i]);
+j=i;
+while((j>0)&&(strcmp(array[j-1],t))>0)//如果前面的数比它大交换之
 {
-   arr[j+1]=arr[j];
-  }
-  arr[j+1]=temp;
- }
-
-for(i=0;i<size;i++)
- 
-{
-  printf("%s ",arr[i]);
- }
+strcpy(m,array[j-1]);
+strcpy(array[j-1],array[j]);
+strcpy(array[j],m);
+j--;
+}
 }
 
-main()
+for(i=0;i<100;i++)
 {
-	FILE *p;
-	char num[100];
-	int i=0;
-	if((p=fopen("H:\\rand100.txt","r"))==NULL)
-	{printf("无法打开此文件.");
-	exit(0);
-	}
-	fgets(num,12,p);
-    insert_sort(num,100);
-	return 0;
+printf("%s",array[i]);
+}
 }

@@ -6,8 +6,8 @@ int main()
 {
         FILE *p;
         char num[100][12];
-        int i=0;
-		int h,k,m;
+        int i=0,j;
+		int h,k,m=0;
         char t[12];
         if((p=fopen("h:\\rand100.txt","r"))==NULL)
         {
@@ -17,15 +17,14 @@ int main()
         while((fgets(num[i++],12,p))!=NULL);
                 for(h=99;h>0;h=k)
         {
-                for(k=0;m<h;m++)
-        {
-                if(strcmp(num[i],num[i+1])>0)
+                for(k=0;i<h;i++)
+        {j=i+1;
+                if((strcmp(num[i],num[j]))>0)
                 {
                 strcpy(t,num[i]);
-                strcpy(num[i],num[i+1]);
-                strcpy(num[i+1],t);
-                k=m;
-                i++;
+                strcpy(num[i],num[j]);
+                strcpy(num[j],t);
+                k=i;
                 }
         }
         }
